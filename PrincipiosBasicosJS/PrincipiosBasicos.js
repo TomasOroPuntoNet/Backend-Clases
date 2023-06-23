@@ -21,11 +21,12 @@ class Contador{
     constructor(nombre){
         this.nombre = nombre;
         this.valor = 0;
+        this.contadorGlobal++;
     }
     static contadorGlobal = 0;
     incrementar(){
         this.valor++;
-        this.contadorGlobal++;
+        // this.contadorGlobal++;
     }
     obtenerValor(){
         return this.valor;
@@ -52,7 +53,5 @@ let contador2 = new Contador("Maria");
 contador2.incrementar()
 contador2.incrementar()
 console.log(contador2.obtenerValor())
-
-console.log(Contador.contadorGlobal())
 // console.log(contador1.obtenerValor())
 // console.log(contador1.obternerContadorGlobal())

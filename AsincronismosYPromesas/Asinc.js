@@ -71,6 +71,15 @@ const divisionConPromesa = (dividendo, divisor) =>{
         }
     });
 }
+const multiplicacionConPromesa = (a, b) => {
+    return new Promise((resolve, reject) => {
+        if(b == 0) {
+            reject("No se puede multiplicar entre 0");
+        } else {
+            resolve(a * b);
+        }
+    });
+}
 divisionConPromesa(1, 0).then(resultado => {
     console.log(resultado);
 }).catch(error => {
