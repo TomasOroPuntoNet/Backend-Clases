@@ -66,36 +66,36 @@ app.put("/api/usuarios/:uid", (req, res) => {
 
 })
 
-app.delete("/api/usuarios/:uid", (req, res) => {
-    const { uid } = req.params;
-  
-    // Encuentra el índice del usuario en el arreglo usuarios
-    const index = usuarios.findIndex((user) => user.id === uid);
-  
-    // Si no se encuentra el usuario, devuelve un código de estado 404
-    if (index === -1) {
-      return res.status(404).json({ message: 'El Usuario No Existente, verifique el ID' });
-    }
-  
-    // Elimina el usuario del arreglo usuarios usando el índice
-    usuarios.splice(index, 1);
-  
-    // Devuelve un código de estado 200 y un mensaje de éxito
-    return res.status(200).json({ message: 'Usuario Eliminado exitosamente' });
-  });
-  
 // app.delete("/api/usuarios/:uid", (req, res) => {
-//     const {uid} = req.params;
-//     let existUser = usuarios.findIndex((user) => user.id === uid)
-//     if(existUser === -1){
-//         return res.status(404).json({message: 'El Usuario No Existente, verifique el ID'});
-//     }else{
-//         usuarios.splice(existUser, 1);
-//         // usuarios.filter((user) => {
-//         // //     user.id === uid
-//         return res.status(200).json({message: 'Usuario Eliminado exitosamente'});
+//     const { uid } = req.params;
+  
+//     // Encuentra el índice del usuario en el arreglo usuarios
+//     const index = usuarios.findIndex((user) => user.id === uid);
+  
+//     // Si no se encuentra el usuario, devuelve un código de estado 404
+//     if (index === -1) {
+//       return res.status(404).json({ message: 'El Usuario No Existente, verifique el ID' });
 //     }
-// })
+  
+//     // Elimina el usuario del arreglo usuarios usando el índice
+//     usuarios.splice(index, 1);
+  
+//     // Devuelve un código de estado 200 y un mensaje de éxito
+//     return res.status(200).json({ message: 'Usuario Eliminado exitosamente' });
+//   });
+  
+app.delete("/api/usuarios/:uid", (req, res) => {
+    const {uid} = req.params;
+    let existUser = usuarios.findIndex((user) => user.id === uid)
+    if(existUser === -1){
+        return res.status(404).json({message: 'El Usuario No Existente, verifique el ID'});
+    }else{
+        usuarios.splice(existUser, 1);
+        // usuarios.filter((user) => {
+        // //     user.id === uid
+        return res.status(200).json({message: 'Usuario Eliminado exitosamente'});
+    }
+});
 
 
 
